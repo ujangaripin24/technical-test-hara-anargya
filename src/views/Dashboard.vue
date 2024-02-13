@@ -166,7 +166,7 @@ export default {
     </div>
     <!-- Main modal -->
     <transition name="fade">
-      <div v-show="showModal" class="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-60">
+      <div v-show="showModal" class="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-60 backdrop-blur-md">
         <div @click.self="clickHideModal" tabindex="-1" aria-hidden="true"
           class="relative p-4 w-full max-w-2xl max-h-full">
           <div class="relative bg-white rounded-lg shadow dark:bg-gray-700" style="backdrop-filter: blur(10px);">
@@ -185,7 +185,7 @@ export default {
               <div v-if="selectedUser">
                 <div class="flex justify-start">
                   <div class="mr-4">
-                    <p><img class="w-20 h-20 rounded-full" :src="selectedUser.profile_picture" alt="Profile Picture"></p>
+                    <p><img class="w-24 h-24 rounded-full" :src="selectedUser.profile_picture" alt="Profile Picture"></p>
                   </div>
                   <div class="space-y-2 ml-4">
                     <p class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ selectedUser.first_name
