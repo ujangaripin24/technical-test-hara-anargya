@@ -166,7 +166,7 @@ export default {
           </tbody>
           <tbody v-else>
             <tr>
-              <td colspan="7" class="text-center py-4">
+              <td colspan="7" class="text-center py-4 bg-white bg-opacity-60 backdrop-blur-md">
                 <div class="flex flex-col items-center justify-center">
                   <div class="animate-spin rounded-full h-16 w-16 border-b-4 border-gray-900"></div>
                   <div class="mt-2">Harap tunggu...</div>
