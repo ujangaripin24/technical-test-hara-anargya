@@ -46,7 +46,8 @@ export default {
 <template>
   <div>
     <div class="flex justify-between">
-      <div class="block w-1/3 ml-2 rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+      <div
+        class="block w-1/3 ml-2 rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
         <div class="flex justify-between p-2">
           <div class="font-medium leading-tight text-gray-900 text-neutral-800 ">Padding</div>
           <div>
@@ -67,7 +68,8 @@ export default {
           </div>
         </div>
       </div>
-      <div class="block w-1/3 ml-2 rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+      <div
+        class="block w-1/3 ml-2 rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
         <div class="flex justify-between p-2">
           <div class="font-medium leading-tight text-gray-900 text-neutral-800 ">Paid</div>
           <div>
@@ -88,7 +90,8 @@ export default {
           </div>
         </div>
       </div>
-      <div class="block w-1/3 ml-2 rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+      <div
+        class="block w-1/3 ml-2 rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
         <div class="flex justify-between p-2">
           <div class="font-medium leading-tight text-gray-900 text-neutral-800 ">Rejected</div>
           <div>
@@ -142,7 +145,7 @@ export default {
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody v-if="usersList.length > 0">
             <tr v-for="user in usersList" :key="user.id" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
               <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ user.id }}</td>
               <td class="px-6 py-4">
@@ -161,12 +164,23 @@ export default {
               </td>
             </tr>
           </tbody>
+          <tbody v-else>
+            <tr>
+              <td colspan="7" class="text-center py-4">
+                <div class="flex flex-col items-center justify-center">
+                  <div class="animate-spin rounded-full h-16 w-16 border-b-4 border-gray-900"></div>
+                  <div class="mt-2">Harap tunggu...</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
     <!-- Main modal -->
     <transition name="fade">
-      <div v-show="showModal" class="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-60 backdrop-blur-md">
+      <div v-show="showModal"
+        class="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-60 backdrop-blur-md">
         <div @click.self="clickHideModal" tabindex="-1" aria-hidden="true"
           class="relative p-4 w-full max-w-2xl max-h-full">
           <div class="relative bg-white rounded-lg shadow dark:bg-gray-700" style="backdrop-filter: blur(10px);">
@@ -212,5 +226,4 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
-}
-</style>
+}</style>
