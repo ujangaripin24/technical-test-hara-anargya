@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+import IconCard from '../assets/Group_2.png';
 
 export default {
   data() {
@@ -8,6 +9,9 @@ export default {
       usersList: [],
       selectedUserById: null
     };
+  },
+  components: {
+    IconCard,
   },
   mounted() {
     this.getData();
@@ -42,67 +46,67 @@ export default {
 <template>
   <div>
     <div class="flex justify-between">
-      <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <div class="p-5">
-          <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology
-              acquisitions 2021</h5>
-          </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-            acquisitions of 2021 so far, in reverse chronological order.</p>
-          <a href="#"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
-            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-              viewBox="0 0 14 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M1 5h12m0 0L9 1m4 4L9 9" />
-            </svg>
-          </a>
+      <div class="block w-1/3 ml-2 rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+        <div class="flex justify-between p-2">
+          <div class="font-medium leading-tight text-gray-900 text-neutral-800 ">Padding</div>
+          <div>
+            <img src="./../assets/Group_2.png" alt="">
+          </div>
+        </div>
+        <div class="p-6 flex justify-start">
+          <h3 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+            2.480,30
+          </h3>
+        </div>
+        <div class="block bg-gray-200 px-6 py-3 dark:border-neutral-600 dark:text-neutral-50 rounded-bl-lg rounded-br-lg">
+          <div class="flex">
+            <div class="justify-start">
+              <div><img src="./../assets/Group_4.png" alt=""></div>
+            </div>
+            <div class="justify-end text-sm text-gray-500">View More</div>
+          </div>
         </div>
       </div>
-      <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
-          <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
-        </a>
-        <div class="p-5">
-          <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology
-              acquisitions 2021</h5>
-          </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-            acquisitions of 2021 so far, in reverse chronological order.</p>
-          <a href="#"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
-            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-              viewBox="0 0 14 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M1 5h12m0 0L9 1m4 4L9 9" />
-            </svg>
-          </a>
+      <div class="block w-1/3 ml-2 rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+        <div class="flex justify-between p-2">
+          <div class="font-medium leading-tight text-gray-900 text-neutral-800 ">Paid</div>
+          <div>
+            <img src="./../assets/Group_2.png" alt="">
+          </div>
+        </div>
+        <div class="p-6 flex justify-start">
+          <h3 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-100">
+            84.310
+          </h3>
+        </div>
+        <div class="block bg-gray-200 px-6 py-3 dark:border-neutral-600 dark:text-neutral-50 rounded-bl-lg rounded-br-lg">
+          <div class="flex">
+            <div class="justify-start">
+              <div><img src="./../assets/Group_7.png" alt=""></div>
+            </div>
+            <div class="justify-end text-sm text-gray-500">View More</div>
+          </div>
         </div>
       </div>
-      <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
-          <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
-        </a>
-        <div class="p-5">
-          <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology
-              acquisitions 2021</h5>
-          </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-            acquisitions of 2021 so far, in reverse chronological order.</p>
-          <a href="#"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
-            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-              viewBox="0 0 14 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M1 5h12m0 0L9 1m4 4L9 9" />
-            </svg>
-          </a>
+      <div class="block w-1/3 ml-2 rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+        <div class="flex justify-between p-2">
+          <div class="font-medium leading-tight text-gray-900 text-neutral-800 ">Rejected</div>
+          <div>
+            <img src="./../assets/Group_2.png" alt="">
+          </div>
+        </div>
+        <div class="p-6 flex justify-start">
+          <h3 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+            12.155
+          </h3>
+        </div>
+        <div class="block bg-gray-200 px-6 py-3 dark:border-neutral-600 dark:text-neutral-50 rounded-bl-lg rounded-br-lg">
+          <div class="flex">
+            <div class="justify-start">
+              <div><img src="./../assets/Group_4.png" alt=""></div>
+            </div>
+            <div class="justify-end text-sm text-gray-500">View More</div>
+          </div>
         </div>
       </div>
     </div>
