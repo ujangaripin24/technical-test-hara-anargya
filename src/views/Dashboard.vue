@@ -21,11 +21,17 @@ export default {
         console.error('Error fetching user data:', error);
       }
     },
-    clickShowModal(userId) {
-      this.selectedUserById = userId;
-      this.showModal = true;
-      console.log('User ID:', userId);
+    async clickShowModal(userId) {
+      try {
+        this.selectedUserId = userId;
+        this.selectedUser = this.usersList.find(user => user.id === userId);
+        this.showModal = true;
+        console.log('User ID:', userId);
+      } catch (error) {
+        console.error('Error selecting user:', error);
+      }
     },
+
     clickHideModal() {
       this.showModal = false;
     },
@@ -144,8 +150,11 @@ export default {
               <td class="px-6 py-4">{{ user.job }}</td>
               <td class="px-6 py-4">{{ user.country }}</td>
               <td class="px-6 py-4 text-right">
-                <button class="shadow dark:bg-gray-800 dark:border-gray-700bg-white text-black font-medium px-3 py-1 rounded-md mr-2 hover:bg-gray-200">Select</button>
-                <button @click="clickShowModal(user.id)" class="shadow dark:bg-gray-800 dark:border-gray-700bg-white text-black font-medium px-3 py-1 rounded-md hover:bg-gray-200">View Detail</button>
+                <button
+                  class="shadow dark:bg-gray-800 dark:border-gray-700bg-white text-black font-medium px-3 py-1 rounded-md mr-2 hover:bg-gray-200">Select</button>
+                <button @click="clickShowModal(user.id)"
+                  class="shadow dark:bg-gray-800 dark:border-gray-700bg-white text-black font-medium px-3 py-1 rounded-md hover:bg-gray-200">View
+                  Detail</button>
               </td>
             </tr>
           </tbody>
@@ -154,26 +163,39 @@ export default {
     </div>
     <!-- Main modal -->
     <transition name="fade" appear>
-    <div v-show="showModal" @click.self="clickHideModal" tabindex="-1" aria-hidden="true" class="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-      <div class="relative p-4 w-full max-w-2xl max-h-full">
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-          <div class="flex items-center justify-between p-4 md:p-5 rounded-t">
-            <button @click="clickHideModal" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
-              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-              </svg>
-              <span class="sr-only">Close modal</span>
-            </button>
-          </div>
-          <div class="p-4 md:p-5 space-y-4">
-            <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-              With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
-            </p>
+      <div v-show="showModal" @click.self="clickHideModal" tabindex="-1" aria-hidden="true"
+        class="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-90 max-w-2xl max-h-full">
+          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <div class="p-4 md:p-5 space-y-4">
+              <div class="flex justify-end">
+                <button @click="clickHideModal" type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                  <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                    <path stroke="red" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+              <div v-if="selectedUser">
+                <div class="flex justify-start">
+                  <div class="mr-4">
+                    <p><img class="w-20 h-20 rounded-full" :src="selectedUser.profile_picture" alt="Profile Picture"></p>
+                  </div>
+                  <div class="space-y-2 ml-4">
+                    <p class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ selectedUser.first_name
+                    }} {{ selectedUser.last_name }}</p>
+                    <p>{{ selectedUser.email }}</p>
+                    <p>{{ selectedUser.phone }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </transition>
+    </transition>
   </div>
 </template>
 
@@ -186,5 +208,4 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
-}
-</style>
+}</style>
