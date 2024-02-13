@@ -1,4 +1,6 @@
 # Technical Test Frontend Hara Anargya
+# :briefcase: Nama : Ujang Aripin
+# :rocket: Email : ujangarifin06@gmail.com
 
 ## Installation
 * Fork Repo ini
