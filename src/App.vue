@@ -10,13 +10,13 @@ import Header from './components/Header.vue'
       <Sidebar />
     </div>
 
-    <div class="flex-1">
+    <div class="flex-1 flex flex-col">
       <div class="shadow-xl shadow-blue-gray-900 text-white p-4">
-        <Header/>
+        <Header />
       </div>
 
-      <div class="p-4">
-        <router-view/>
+      <div class="p-4 flex-1 overflow-y-auto">
+        <router-view class="max-h-screen" />
       </div>
     </div>
   </div>
